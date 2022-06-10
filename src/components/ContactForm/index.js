@@ -1,10 +1,10 @@
 import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 
-import CategoriesService from '../../services/CategoriesService';
 import isEmailValid from '../../utils/isEmailValid';
 import formatPhone from '../../utils/formatPhone';
 import useErrors from '../../hooks/useErrors';
+import CategoriesService from '../../services/CategoriesService';
 
 import { ButtonContainer, Form } from './styles';
 
@@ -36,7 +36,7 @@ export default function ContactForm({ buttonLabel, onSubmit }) {
         const categoriesList = await CategoriesService.listCategories();
 
         setCategories(categoriesList);
-      } catch (error) {} finally {
+      } catch {} finally {
         setIsLoadingCategories(false);
       }
     }
@@ -113,6 +113,7 @@ export default function ContactForm({ buttonLabel, onSubmit }) {
           disabled={isLoadingCategories}
         >
           <option value="">Sem categoria</option>
+
           {categories.map((category) => (
             <option key={category.id} value={category.id}>
               {category.name}
