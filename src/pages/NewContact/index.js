@@ -18,11 +18,13 @@ export default function NewContact() {
       toast({
         type: 'success',
         text: 'Contato cadastrado com sucesso!',
+        duration: 5000,
       });
     } catch (error) {
       toast({
         type: 'danger',
         text: 'Ocorreu um erro ao cadastrar o contato!',
+        duration: 5000,
       });
     }
   }
