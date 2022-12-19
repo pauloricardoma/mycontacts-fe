@@ -50,18 +50,6 @@ export default function Home() {
     <Container>
       <Loader isLoading={isLoading} />
 
-      <Modal
-        danger
-        visible={isDeleteModalVisible}
-        title={`Tem certeza que deseja remover o contato "${contactBeingDeleted?.name}"?`}
-        confirmLabel="Deletar"
-        onCancel={handleCloseDeleteModal}
-        onConfirm={handleConfirmDeleteContact}
-        isLoading={isLoadingDelete}
-      >
-        <p>Esta ação não poderá ser desfeita!</p>
-      </Modal>
-
       {(!hasError && contacts.length > 0) && (
         <InputSearchContainer>
           <input
@@ -166,6 +154,18 @@ export default function Home() {
               </div>
             </Card>
           ))}
+
+          <Modal
+            danger
+            visible={isDeleteModalVisible}
+            title={`Tem certeza que deseja remover o contato "${contactBeingDeleted?.name}"?`}
+            confirmLabel="Deletar"
+            onCancel={handleCloseDeleteModal}
+            onConfirm={handleConfirmDeleteContact}
+            isLoading={isLoadingDelete}
+          >
+            <p>Esta ação não poderá ser desfeita!</p>
+          </Modal>
         </>
       )}
     </Container>
