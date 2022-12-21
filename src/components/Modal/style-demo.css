@@ -1,0 +1,12 @@
+/* Somente pra deixar a demonstração */
+@keyframes fadeIn {
+  from {
+
+  }
+
+  to {
+
+  }
+}
+
+animation: fadeIn 0.3s;
